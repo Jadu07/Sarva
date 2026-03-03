@@ -23,6 +23,7 @@ model OS {
   description String
   size        String
   status      String
+  logo        String?
   category    Category @relation(fields: [categoryId], references: [id])
   categoryId  String   @db.ObjectId
   createdAt   DateTime @default(now())
