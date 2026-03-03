@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const categoryRoutes = require('./routes/category')
 
 const app = express();
 
@@ -7,11 +8,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Routes
+app.use('/api/categories', categoryRoutes)
+
 // Health Check Route
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
-    message: 'ShopSmart Backend is running',
+    message: 'Sarva OS Backend is running',
     timestamp: new Date().toISOString()
   });
 });
