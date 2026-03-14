@@ -70,6 +70,53 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <div className="max-w-7xl mx-auto px-6">
+        <section className="py-28 border-b border-zinc-100">
+          <div className="flex items-end justify-between mb-12">
+            <div>
+              <p className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 mb-3">Browse by type</p>
+              <h2 className="text-4xl font-black tracking-tighter uppercase text-zinc-900">Categories</h2>
+            </div>
+            <Link to="/explore" className="flex items-center gap-2 text-[11px] font-black tracking-[0.2em] uppercase text-zinc-500 hover:text-zinc-900 transition-colors">
+              All <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {categories.map((cat) => (
+              <Link
+                key={cat.id}
+                to={`/explore?category=${cat.id}`}
+                className="group relative overflow-hidden border border-zinc-200 p-10 bg-white hover:border-zinc-900 transition-colors duration-300"
+              >
+                <div className="mb-8">
+                  {cat.icon ? (
+                    <img
+                      src={cat.icon}
+                      alt={cat.name}
+                      className="w-11 h-11 object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                    />
+                  ) : (
+                    <div className="w-11 h-11 bg-zinc-100" />
+                  )}
+                </div>
+                <h3 className="text-xl font-black tracking-tight text-zinc-900 mb-1">{cat.name}</h3>
+                <p className="text-sm text-zinc-400 font-medium">All {cat.name} distributions</p>
+                {cat.icon && (
+                  <img
+                    src={cat.icon}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute -bottom-8 -right-8 w-40 h-40 grayscale opacity-[0.04] pointer-events-none select-none"
+                  />
+                )}
+                <ArrowRight className="absolute top-10 right-10 w-5 h-5 text-zinc-200 group-hover:text-zinc-900 transition-colors" />
+              </Link>
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   )
 }
