@@ -116,6 +116,66 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <section className="py-28 border-b border-zinc-100">
+          <div className="mb-12">
+            <p className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 mb-3">Popular picks</p>
+            <h2 className="text-4xl font-black tracking-tighter uppercase text-zinc-900">Featured Distributions</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {featuredOs.map((os) => (
+              <div
+                key={os.id}
+                className="group border border-zinc-200 p-8 bg-white hover:border-zinc-900 transition-colors cursor-pointer"
+              >
+                <div className="flex justify-between items-start mb-6">
+                  <span className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-400 border border-zinc-100 px-2 py-1">
+                    {os.category?.name ?? 'OS'}
+                  </span>
+                  {os.logo && (
+                    <img
+                      src={os.logo}
+                      alt={os.name}
+                      className="w-8 h-8 object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                    />
+                  )}
+                </div>
+                <h3 className="text-2xl font-black tracking-tight text-zinc-900 mb-2">{os.name}</h3>
+                <p className="text-sm text-zinc-500 font-medium line-clamp-2 mb-8">{os.description}</p>
+                <div className="flex items-center justify-between border-t border-zinc-100 pt-5">
+                  <span className="text-xs font-mono font-bold text-zinc-400">{os.version}</span>
+                  <span className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors">Details</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="py-28">
+          <div
+            className="bg-zinc-900 p-12 md:p-20 text-center relative overflow-hidden"
+          >
+            <div
+              className="absolute inset-0 opacity-[0.08] pointer-events-none"
+              style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '28px 28px' }}
+            />
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase text-white mb-5">
+                100% Free & Open Source.
+              </h2>
+              <p className="max-w-xl mx-auto text-zinc-400 font-medium leading-relaxed mb-10">
+                No mirrors, no modified ISOs. Every download links directly to official, verified sources from each distribution's maintainers.
+              </p>
+              <Link
+                to="/explore"
+                className="inline-block px-12 py-4 bg-white text-zinc-900 text-xs font-black tracking-[0.2em] uppercase hover:bg-zinc-100 transition-colors"
+              >
+                Access the Directory
+              </Link>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   )
