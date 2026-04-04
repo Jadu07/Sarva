@@ -39,14 +39,16 @@ export default function Home() {
         className="relative w-full flex items-center border-b border-zinc-200 bg-white overflow-hidden"
         style={{
           minHeight: '40vh',
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-opacity='.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-opacity='.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")`
         }}
       >
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-12 flex flex-col lg:flex-row items-center justify-between gap-10">
           <div className="text-left w-full lg:w-auto">
             <span className="inline-flex items-center gap-2 border border-zinc-100 bg-zinc-50 px-3 py-1 mb-5">
               <span className="w-1 h-1 rounded-full bg-zinc-900 inline-block"></span>
-              <span className="text-[9px] font-black tracking-[0.25em] uppercase text-zinc-550">Sarva OS v1.0</span>
+              <span className="text-[9px] font-black tracking-[0.25em] uppercase text-zinc-550">
+                Sarva OS v1.0
+              </span>
             </span>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.9] uppercase text-zinc-900">
               The Ultimate <br />
@@ -56,7 +58,8 @@ export default function Home() {
 
           <div className="lg:max-w-md flex flex-col lg:items-end text-left lg:text-right w-full lg:w-auto">
             <p className="text-zinc-500 font-medium leading-relaxed mb-8 text-sm md:text-base">
-              Discover and download every major operating system with a clean and minimal experience for modern users. <br className="hidden xl:block" />
+              Discover and download every major operating system with a clean and minimal experience
+              for modern users. <br className="hidden xl:block" />
               Minimal. Open. Unified.
             </p>
             <div className="flex flex-wrap items-center lg:justify-end gap-3">
@@ -81,10 +84,17 @@ export default function Home() {
         <section className="py-28 border-b border-zinc-100">
           <div className="flex items-end justify-between mb-12">
             <div>
-              <p className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 mb-3">Browse by type</p>
-              <h2 className="text-4xl font-black tracking-tighter uppercase text-zinc-900">Categories</h2>
+              <p className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 mb-3">
+                Browse by type
+              </p>
+              <h2 className="text-4xl font-black tracking-tighter uppercase text-zinc-900">
+                Categories
+              </h2>
             </div>
-            <Link to="/explore" className="flex items-center gap-2 text-[11px] font-black tracking-[0.2em] uppercase text-zinc-500 hover:text-zinc-900 transition-colors">
+            <Link
+              to="/explore"
+              className="flex items-center gap-2 text-[11px] font-black tracking-[0.2em] uppercase text-zinc-500 hover:text-zinc-900 transition-colors"
+            >
               All <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -125,8 +135,12 @@ export default function Home() {
 
         <section className="py-28 border-b border-zinc-100">
           <div className="mb-12">
-            <p className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 mb-3">Popular picks</p>
-            <h2 className="text-4xl font-black tracking-tighter uppercase text-zinc-900">Featured Distributions</h2>
+            <p className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 mb-3">
+              Popular picks
+            </p>
+            <h2 className="text-4xl font-black tracking-tighter uppercase text-zinc-900">
+              Featured Distributions
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -148,10 +162,14 @@ export default function Home() {
                   )}
                 </div>
                 <h3 className="text-2xl font-black tracking-tight text-zinc-900 mb-2">{os.name}</h3>
-                <p className="text-sm text-zinc-500 font-medium line-clamp-2 mb-8">{os.description}</p>
+                <p className="text-sm text-zinc-500 font-medium line-clamp-2 mb-8">
+                  {os.description}
+                </p>
                 <div className="flex items-center justify-between border-t border-zinc-100 pt-5">
                   <span className="text-xs font-mono font-bold text-zinc-400">{os.version}</span>
-                  <span className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors">Details</span>
+                  <span className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors">
+                    Details
+                  </span>
                 </div>
               </div>
             ))}
@@ -159,19 +177,21 @@ export default function Home() {
         </section>
 
         <section className="py-28">
-          <div
-            className="bg-zinc-900 p-12 md:p-20 text-center relative overflow-hidden"
-          >
+          <div className="bg-zinc-900 p-12 md:p-20 text-center relative overflow-hidden">
             <div
               className="absolute inset-0 opacity-[0.08] pointer-events-none"
-              style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '28px 28px' }}
+              style={{
+                backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+                backgroundSize: '28px 28px'
+              }}
             />
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase text-white mb-5">
                 100% Free & Open Source.
               </h2>
               <p className="max-w-xl mx-auto text-zinc-400 font-medium leading-relaxed mb-10">
-                No mirrors, no modified ISOs. Every download links directly to official, verified sources from each distribution's maintainers.
+                No mirrors, no modified ISOs. Every download links directly to official, verified
+                sources from each distribution's maintainers.
               </p>
               <Link
                 to="/explore"

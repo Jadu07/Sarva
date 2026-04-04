@@ -4,40 +4,33 @@ import App from './App'
 import Footer from './components/Footer'
 
 describe('Sarva OS Tests', () => {
+  describe('Homepage (App)', () => {
+    it('renders brand and main links', () => {
+      render(<App />)
 
-    describe('Homepage (App)', () => {
-        it('renders brand and main links', () => {
-            render(<App />)
-
-            expect(screen.getAllByText(/SARVA OS/i).length).toBeGreaterThan(0)
-            expect(screen.getByText(/Home/i)).toBeInTheDocument()
-            expect(screen.getByText(/Explore/i)).toBeInTheDocument()
-            expect(screen.getByText(/Downloads/i)).toBeInTheDocument()
-        })
+      expect(screen.getAllByText(/SARVA OS/i).length).toBeGreaterThan(0)
+      expect(screen.getByText(/Home/i)).toBeInTheDocument()
+      expect(screen.getByText(/Explore/i)).toBeInTheDocument()
+      expect(screen.getByText(/Downloads/i)).toBeInTheDocument()
     })
+  })
 
-
-    describe('Footer', () => {
-
+  describe('Footer', () => {
     it('renders links', () => {
-        render(<Footer />)
+      render(<Footer />)
 
-        expect(screen.getByText(/GitHub/i)).toBeInTheDocument()
-        expect(screen.getByText(/Privacy/i)).toBeInTheDocument()
+      expect(screen.getByText(/GitHub/i)).toBeInTheDocument()
+      expect(screen.getByText(/Privacy/i)).toBeInTheDocument()
     })
 
     it('renders current year', () => {
-        render(<Footer />)
+      render(<Footer />)
 
-        const year = new Date().getFullYear()
-        expect(screen.getByText(new RegExp(year))).toBeInTheDocument()
+      const year = new Date().getFullYear()
+      expect(screen.getByText(new RegExp(year))).toBeInTheDocument()
     })
-
-    })
-
+  })
 })
-
-
 
 describe('Backend Connectivity Test', () => {
   it('should respond with healthy status', async () => {
