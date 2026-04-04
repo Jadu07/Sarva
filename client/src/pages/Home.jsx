@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import { getCategories, getAllOs } from '../services/api'
 
 export default function Home() {
   const [categories, setCategories] = useState([])
@@ -10,15 +11,13 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [catRes, osRes] = await Promise.all([
-          fetch('/api/categories'),
-          fetch('/api/os'),
-        ])
-        if (!catRes.ok || !osRes.ok) throw new Error('API error')
-        setCategories(await catRes.json())
-        setFeaturedOs((await osRes.json()).slice(0, 3))
+        const categoriesData = await getCategories()
+        setCategories(categoriesData)
+
+        const osData = await getAllOs()
+        setFeaturedOs(osData.slice(0, 3))
       } catch (err) {
-        console.error(err)
+        console.error('Failed to load home page data:', err)
       } finally {
         setLoading(false)
       }
