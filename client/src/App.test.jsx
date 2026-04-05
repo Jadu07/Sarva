@@ -34,7 +34,8 @@ describe('Sarva OS Tests', () => {
 
 describe('Backend Connectivity Test', () => {
   it('should respond with healthy status', async () => {
-    const url = 'http://localhost:5001/api/health'
+    const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001/api'
+    const url = `${baseUrl}/health`
 
     try {
       const res = await fetch(url)
