@@ -1,27 +1,25 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-if ! command -v node > /dev/null; then
-  echo "[ERROR] node not installed"
-  exit 1
+if ! command -v node &> /dev/null; then
+    echo "[ERROR] Node.js is not installed."
+    exit 1
 fi
 
-if ! command -v npm > /dev/null; then
-  echo "[ERROR] npm not installed"
-  exit 1
+echo "[INFO] Node $(node -v) | NPM $(npm -v)"
+
+if [ ! -d "client" ]; then
+    echo "[ERROR] Frontend folder not found."
+    exit 1
 fi
 
-for dir in client server
-do
-  if [ -d "$dir" ]; then
-    cd "$dir" || exit 1
+if [ ! -d "server" ]; then
+    echo "[ERROR] Backend folder not found."
+    exit 1
+fi
 
-    if [ -d "node_modules" ]; then
-      echo "[INFO] Skipping install in $dir"
-    else
-      echo "[INFO] Installing in $dir"
-      npm install
-    fi
+echo "[INFO] Starting Frontend..."
+cd client && npm install && npm run dev &
+cd ..
 
-    cd ..
-  fi
-done
+echo "[INFO] Starting Backend..."
+cd server && npm install && npm run dev
