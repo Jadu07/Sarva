@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const categoryRoutes = require('./routes/category')
 const osRoutes = require('./routes/os')
+const exploreRoutes = require('./routes/explore')
 
 const app = express()
 
@@ -12,6 +13,7 @@ app.use(express.json())
 // Routes
 app.use('/api/categories', categoryRoutes)
 app.use('/api/os', osRoutes)
+app.use('/api/explore', exploreRoutes)
 
 // Health Check Route
 app.get('/api/health', (req, res) => {
