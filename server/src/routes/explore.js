@@ -5,10 +5,10 @@ const prisma = new PrismaClient()
 router.get('/', async (req, res) => {
   try {
     const categories = await prisma.category.findMany({ orderBy: { name: 'asc' } })
-    const featured = await prisma.os.findMany({ 
-      take: 6, 
-      orderBy: { createdAt: 'desc' }, 
-      include: { category: true } 
+    const featured = await prisma.os.findMany({
+      take: 6,
+      orderBy: { createdAt: 'desc' },
+      include: { category: true }
     })
     res.json({ categories, featured })
   } catch (error) {
