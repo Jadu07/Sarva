@@ -30,4 +30,11 @@ describe('API Routes Tests', () => {
     expect(res.statusCode).toEqual(200)
     expect(Array.isArray(res.body)).toBe(true)
   })
+
+  it('GET /api/explore should return 200 and include categories/featured', async () => {
+    const res = await request(app).get('/api/explore')
+    expect(res.statusCode).toEqual(200)
+    expect(res.body).toHaveProperty('categories')
+    expect(res.body).toHaveProperty('featured')
+  })
 })
