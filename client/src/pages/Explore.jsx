@@ -50,7 +50,35 @@ export default function Explore() {
 
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row gap-12">
-        {/* We will build the Category Sidebar here */}
+        {/* Category Sidebar */}
+        <aside className="w-full md:w-64 flex-shrink-0">
+          <p className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 mb-6">Filter by Type</p>
+          <div className="flex flex-col gap-2">
+            <button
+              onClick={() => setSearchParams({})}
+              className={`text-left px-4 py-3 text-xs font-black tracking-[0.1em] uppercase transition-all border ${
+                !categoryParam 
+                ? 'bg-zinc-900 text-white border-zinc-900' 
+                : 'bg-white text-zinc-500 border-zinc-200 hover:border-zinc-900 hover:text-zinc-900'
+              }`}
+            >
+              All Types
+            </button>
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setSearchParams({ category: cat.id })}
+                className={`text-left px-4 py-3 text-xs font-black tracking-[0.1em] uppercase transition-all border ${
+                  categoryParam === cat.id 
+                  ? 'bg-zinc-900 text-white border-zinc-900' 
+                  : 'bg-white text-zinc-500 border-zinc-200 hover:border-zinc-900 hover:text-zinc-900'
+                }`}
+              >
+                {cat.name}
+              </button>
+            ))}
+          </div>
+        </aside>
         
         {/* We will build the OS Grid here */}
         <div className="flex-1 min-h-[50vh]">
