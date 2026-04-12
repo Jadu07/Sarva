@@ -43,7 +43,9 @@ export default function Explore() {
       {/* Page Header */}
       <section className="border-b border-zinc-200 py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 mb-2">Directory</p>
+          <p className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 mb-2">
+            Directory
+          </p>
           <h1 className="text-5xl font-black tracking-tighter uppercase">Explore</h1>
         </div>
       </section>
@@ -52,14 +54,16 @@ export default function Explore() {
       <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row gap-12">
         {/* Category Sidebar */}
         <aside className="w-full md:w-64 flex-shrink-0">
-          <p className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 mb-6">Filter by Type</p>
+          <p className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 mb-6">
+            Filter by Type
+          </p>
           <div className="flex flex-col gap-2">
             <button
               onClick={() => setSearchParams({})}
               className={`text-left px-4 py-3 text-xs font-black tracking-[0.1em] uppercase transition-all border ${
-                !categoryParam 
-                ? 'bg-zinc-900 text-white border-zinc-900' 
-                : 'bg-white text-zinc-500 border-zinc-200 hover:border-zinc-900 hover:text-zinc-900'
+                !categoryParam
+                  ? 'bg-zinc-900 text-white border-zinc-900'
+                  : 'bg-white text-zinc-500 border-zinc-200 hover:border-zinc-900 hover:text-zinc-900'
               }`}
             >
               All Types
@@ -69,9 +73,9 @@ export default function Explore() {
                 key={cat.id}
                 onClick={() => setSearchParams({ category: cat.id })}
                 className={`text-left px-4 py-3 text-xs font-black tracking-[0.1em] uppercase transition-all border ${
-                  categoryParam === cat.id 
-                  ? 'bg-zinc-900 text-white border-zinc-900' 
-                  : 'bg-white text-zinc-500 border-zinc-200 hover:border-zinc-900 hover:text-zinc-900'
+                  categoryParam === cat.id
+                    ? 'bg-zinc-900 text-white border-zinc-900'
+                    : 'bg-white text-zinc-500 border-zinc-200 hover:border-zinc-900 hover:text-zinc-900'
                 }`}
               >
                 {cat.name}
@@ -79,7 +83,7 @@ export default function Explore() {
             ))}
           </div>
         </aside>
-        
+
         {/* OS Grid */}
         <div className="flex-1 min-h-[50vh]">
           <div className="mb-8 flex items-center justify-between border-b border-zinc-100 pb-4">
@@ -90,12 +94,18 @@ export default function Explore() {
 
           {loading ? (
             <div className="flex items-center justify-center min-h-[30vh]">
-               <p className="text-xs font-black tracking-[0.2em] uppercase text-zinc-400 animate-pulse">Loading Directory...</p>
+              <p className="text-xs font-black tracking-[0.2em] uppercase text-zinc-400 animate-pulse">
+                Loading Directory...
+              </p>
             </div>
           ) : osList.length === 0 ? (
             <div className="flex flex-col items-center justify-center min-h-[30vh] border border-dashed border-zinc-200 bg-zinc-50">
-               <p className="text-xs font-black tracking-[0.2em] uppercase text-zinc-400 mb-2">No Results</p>
-               <p className="text-sm text-zinc-500 font-medium">No distributions found for this category.</p>
+              <p className="text-xs font-black tracking-[0.2em] uppercase text-zinc-400 mb-2">
+                No Results
+              </p>
+              <p className="text-sm text-zinc-500 font-medium">
+                No distributions found for this category.
+              </p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -116,16 +126,20 @@ export default function Explore() {
                           className="w-8 h-8 object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
                         />
                       ) : (
-                         <div className="w-8 h-8 bg-zinc-100" />
+                        <div className="w-8 h-8 bg-zinc-100" />
                       )}
                     </div>
-                    <h3 className="text-2xl font-black tracking-tight text-zinc-900 mb-2">{os.name}</h3>
+                    <h3 className="text-2xl font-black tracking-tight text-zinc-900 mb-2">
+                      {os.name}
+                    </h3>
                     <p className="text-sm text-zinc-500 font-medium line-clamp-3 mb-8">
                       {os.description}
                     </p>
                   </div>
                   <div className="flex items-center justify-between border-t border-zinc-100 pt-5 mt-auto">
-                    <span className="text-xs font-mono font-bold text-zinc-400">{os.version || 'v1.0'}</span>
+                    <span className="text-xs font-mono font-bold text-zinc-400">
+                      {os.version || 'v1.0'}
+                    </span>
                     <Link
                       to={`/downloads`}
                       className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors flex items-center gap-1"
