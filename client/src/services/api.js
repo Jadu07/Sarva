@@ -12,3 +12,9 @@ export const getAllOs = async (categoryId) => {
   if (!res.ok) throw new Error('Failed to fetch OS distributions')
   return res.json()
 }
+
+export const getExploreData = async () => {
+  const res = await fetch(`${BASE_URL}/explore`)
+  if (!res.ok) throw new Error('Failed to fetch explore data')
+  return res.json()
+}
