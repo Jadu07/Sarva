@@ -1,0 +1,16 @@
+services:
+  backend:
+    build: ./server
+    container_name: sarva-backend-v2
+    ports:
+      - "5000:5000"
+
+
+  frontend:
+    build: ./client
+    container_name: sarva-frontend-v2
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    
