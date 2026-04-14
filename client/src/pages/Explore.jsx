@@ -20,8 +20,7 @@ export default function Explore() {
           setCategories(cats)
           setOsList(featured)
         } else {
-          // If a category is selected, we only want OS for that category
-          // but we still need the categories list for the sidebar
+
           const [{ categories: cats }, osData] = await Promise.all([
             getExploreData(),
             getAllOs(categoryParam)
@@ -40,7 +39,6 @@ export default function Explore() {
 
   return (
     <div className="w-full bg-white text-zinc-900 min-h-screen">
-
       <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row gap-12">
         <aside className="w-full md:w-64 flex-shrink-0">
           <p className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 mb-6">
