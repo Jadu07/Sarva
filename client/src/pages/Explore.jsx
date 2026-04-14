@@ -40,19 +40,8 @@ export default function Explore() {
 
   return (
     <div className="w-full bg-white text-zinc-900 min-h-screen">
-      {/* Page Header */}
-      <section className="border-b border-zinc-200 py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 mb-2">
-            Directory
-          </p>
-          <h1 className="text-5xl font-black tracking-tighter uppercase">Explore</h1>
-        </div>
-      </section>
 
-      {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row gap-12">
-        {/* Category Sidebar */}
         <aside className="w-full md:w-64 flex-shrink-0">
           <p className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 mb-6">
             Filter by Type
@@ -84,7 +73,6 @@ export default function Explore() {
           </div>
         </aside>
 
-        {/* OS Grid */}
         <div className="flex-1 min-h-[50vh]">
           <div className="mb-8 flex items-center justify-between border-b border-zinc-100 pb-4">
             <p className="text-zinc-500 font-medium text-sm">
