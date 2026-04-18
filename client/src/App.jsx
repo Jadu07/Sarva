@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Explore from './pages/Explore'
 import Downloads from './pages/Downloads'
 import OsDetails from './pages/OsDetails'
+import Payment from './pages/Payment'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/explore" element={<Explore />} />
             <Route path="/downloads" element={<Downloads />} />
             <Route path="/os/:id" element={<OsDetails />} />
+            <Route path="/payment/:id" element={<Payment />} />
           </Routes>
         </main>
         <Footer />

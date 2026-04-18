@@ -161,13 +161,13 @@ export default function OsDetails() {
 
               <div className="mt-10 pt-8 border-t border-zinc-200 relative z-10">
                 <Link
-                  to="/downloads"
+                  to={`/payment/${os.id}`}
                   className="flex items-center justify-center w-full py-4 bg-zinc-900 hover:bg-zinc-800 text-white text-[10px] font-black tracking-[0.3em] uppercase transition-all active:scale-95 gap-2"
                 >
-                  <Download className="w-4 h-4" /> Download ISO
+                  <Download className="w-4 h-4" /> Download Now
                 </Link>
                 <p className="text-center text-[10px] text-zinc-400 font-medium tracking-wide mt-4">
-                  Redirects to Downloads section
+                  Proceeds to secure checkout
                 </p>
               </div>
             </div>
