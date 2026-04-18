@@ -18,3 +18,8 @@ export const getExploreData = async () => {
   if (!res.ok) throw new Error('Failed to fetch explore data')
   return res.json()
 }
+export const getOsById = async (id) => {
+  const res = await fetch(`${BASE_URL}/os/${id}`)
+  if (!res.ok) throw new Error('Failed to fetch OS details')
+  return res.json()
+}

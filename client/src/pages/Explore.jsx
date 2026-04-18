@@ -47,11 +47,10 @@ export default function Explore() {
           <div className="flex flex-col gap-2">
             <button
               onClick={() => setSearchParams({})}
-              className={`text-left px-4 py-3 text-xs font-black tracking-[0.1em] uppercase transition-all border ${
-                !categoryParam
+              className={`text-left px-4 py-3 text-xs font-black tracking-[0.1em] uppercase transition-all border ${!categoryParam
                   ? 'bg-zinc-900 text-white border-zinc-900'
                   : 'bg-white text-zinc-500 border-zinc-200 hover:border-zinc-900 hover:text-zinc-900'
-              }`}
+                }`}
             >
               All Types
             </button>
@@ -59,11 +58,10 @@ export default function Explore() {
               <button
                 key={cat.id}
                 onClick={() => setSearchParams({ category: cat.id })}
-                className={`text-left px-4 py-3 text-xs font-black tracking-[0.1em] uppercase transition-all border ${
-                  categoryParam === cat.id
+                className={`text-left px-4 py-3 text-xs font-black tracking-[0.1em] uppercase transition-all border ${categoryParam === cat.id
                     ? 'bg-zinc-900 text-white border-zinc-900'
                     : 'bg-white text-zinc-500 border-zinc-200 hover:border-zinc-900 hover:text-zinc-900'
-                }`}
+                  }`}
               >
                 {cat.name}
               </button>
@@ -96,9 +94,10 @@ export default function Explore() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {osList.map((os) => (
-                <div
+                <Link
                   key={os.id}
-                  className="group flex flex-col border border-zinc-200 p-8 bg-white hover:border-zinc-900 transition-colors cursor-pointer justify-between"
+                  to={`/os/${os.id}`}
+                  className="group flex flex-col border border-zinc-200 p-8 bg-white hover:border-zinc-900 transition-colors cursor-pointer justify-between block"
                 >
                   <div>
                     <div className="flex justify-between items-start mb-6">
@@ -126,14 +125,13 @@ export default function Explore() {
                     <span className="text-xs font-mono font-bold text-zinc-400">
                       {os.version || 'v1.0'}
                     </span>
-                    <Link
-                      to={`/downloads`}
+                    <span
                       className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors flex items-center gap-1"
                     >
-                      Download <ArrowRight className="w-3 h-3" />
-                    </Link>
+                      Details <ArrowRight className="w-3 h-3" />
+                    </span>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           )}

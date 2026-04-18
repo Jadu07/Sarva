@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Explore from './pages/Explore'
 import Downloads from './pages/Downloads'
+import OsDetails from './pages/OsDetails'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/downloads" element={<Downloads />} />
+            <Route path="/os/:id" element={<OsDetails />} />
           </Routes>
         </main>
         <Footer />

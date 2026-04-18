@@ -1,5 +1,6 @@
-import { Download, Loader2 } from 'lucide-react'
+import { Download, Loader2, ShoppingCart } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { getAllOs } from '../services/api'
 
 export default function Downloads() {
@@ -9,7 +10,7 @@ export default function Downloads() {
   useEffect(() => {
     getAllOs()
       .then(setDownloads)
-      .catch(() => {})
+      .catch(() => { })
       .finally(() => setLoading(false))
   }, [])
 
@@ -36,7 +37,7 @@ export default function Downloads() {
 
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[800px]">
-              
+
               <thead>
                 <tr className="bg-zinc-50/80 border-b border-zinc-200 text-xs uppercase tracking-wider font-semibold text-zinc-500">
                   <th className="py-4 px-6">System</th>
@@ -50,7 +51,11 @@ export default function Downloads() {
 
               <tbody className="divide-y divide-zinc-100 text-sm">
                 {downloads.map(({ id, logo, name, category, status, version, updatedAt, size }) => (
-                  <tr key={id} className="hover:bg-zinc-50/80 transition-colors group">
+                  <tr 
+                    key={id} 
+                    onClick={() => navigate(`/os/${id}`)}
+                    className="hover:bg-zinc-50/80 transition-colors group cursor-pointer"
+                  >
 
                     <td className="py-5 px-6 whitespace-nowrap min-w-[200px]">
                       <div className="flex items-center gap-3 font-medium text-zinc-900">
@@ -93,9 +98,12 @@ export default function Downloads() {
                     </td>
 
                     <td className="py-5 px-6 text-right whitespace-nowrap">
-                      <button className="inline-flex items-center gap-2 px-4 py-2 bg-white text-zinc-900 border border-zinc-200 hover:bg-zinc-50 hover:border-zinc-300 font-medium active:scale-95 text-xs shadow-sm group-hover:shadow">
-                        <Download className="w-3.5 h-3.5" />
-                        Download
+                      <button 
+                        onClick={(e) => { e.stopPropagation(); navigate(`/os/${id}`); }}
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-white text-zinc-900 border border-zinc-200 hover:bg-zinc-50 hover:border-zinc-300 font-medium active:scale-95 text-xs shadow-sm group-hover:shadow"
+                      >
+                        <ShoppingCart className="w-3.5 h-3.5" />
+                        Buy Now
                       </button>
                     </td>
 

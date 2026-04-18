@@ -145,9 +145,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {featuredOs.map((os) => (
-              <div
+              <Link
                 key={os.id}
-                className="group border border-zinc-200 p-8 bg-white hover:border-zinc-900 transition-colors cursor-pointer"
+                to={`/os/${os.id}`}
+                className="group border border-zinc-200 p-8 bg-white hover:border-zinc-900 transition-colors cursor-pointer block"
               >
                 <div className="flex justify-between items-start mb-6">
                   <span className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-400 border border-zinc-100 px-2 py-1">
@@ -171,7 +172,7 @@ export default function Home() {
                     Details
                   </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </section>
