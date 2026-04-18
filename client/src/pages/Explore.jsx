@@ -20,7 +20,6 @@ export default function Explore() {
           setCategories(cats)
           setOsList(featured)
         } else {
-
           const [{ categories: cats }, osData] = await Promise.all([
             getExploreData(),
             getAllOs(categoryParam)
@@ -47,10 +46,11 @@ export default function Explore() {
           <div className="flex flex-col gap-2">
             <button
               onClick={() => setSearchParams({})}
-              className={`text-left px-4 py-3 text-xs font-black tracking-[0.1em] uppercase transition-all border ${!categoryParam
+              className={`text-left px-4 py-3 text-xs font-black tracking-[0.1em] uppercase transition-all border ${
+                !categoryParam
                   ? 'bg-zinc-900 text-white border-zinc-900'
                   : 'bg-white text-zinc-500 border-zinc-200 hover:border-zinc-900 hover:text-zinc-900'
-                }`}
+              }`}
             >
               All Types
             </button>
@@ -58,10 +58,11 @@ export default function Explore() {
               <button
                 key={cat.id}
                 onClick={() => setSearchParams({ category: cat.id })}
-                className={`text-left px-4 py-3 text-xs font-black tracking-[0.1em] uppercase transition-all border ${categoryParam === cat.id
+                className={`text-left px-4 py-3 text-xs font-black tracking-[0.1em] uppercase transition-all border ${
+                  categoryParam === cat.id
                     ? 'bg-zinc-900 text-white border-zinc-900'
                     : 'bg-white text-zinc-500 border-zinc-200 hover:border-zinc-900 hover:text-zinc-900'
-                  }`}
+                }`}
               >
                 {cat.name}
               </button>
@@ -125,9 +126,7 @@ export default function Explore() {
                     <span className="text-xs font-mono font-bold text-zinc-400">
                       {os.version || 'v1.0'}
                     </span>
-                    <span
-                      className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors flex items-center gap-1"
-                    >
+                    <span className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors flex items-center gap-1">
                       Details <ArrowRight className="w-3 h-3" />
                     </span>
                   </div>

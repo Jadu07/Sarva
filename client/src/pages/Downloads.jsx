@@ -1,34 +1,34 @@
-import { Download, Loader2, ShoppingCart } from 'lucide-react'
+import { Loader2, ShoppingCart } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getAllOs } from '../services/api'
 
 export default function Downloads() {
+  const navigate = useNavigate()
   const [downloads, setDownloads] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getAllOs()
       .then(setDownloads)
-      .catch(() => { })
+      .catch(() => {})
       .finally(() => setLoading(false))
   }, [])
 
   return (
     <div className="min-h-[calc(100vh-4rem)] bg-zinc-50 py-24 px-6 sm:px-12">
       <div className="max-w-6xl mx-auto space-y-12">
-
         <div className="space-y-4 text-center md:text-left">
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900">
             Releases and Downloads
           </h1>
           <p className="text-lg text-zinc-600 max-w-2xl leading-relaxed">
-            Explore our complete directory of officially supported operating systems. Select your preferred platform and architecture to securely download the latest release.
+            Explore our complete directory of officially supported operating systems. Select your
+            preferred platform and architecture to securely download the latest release.
           </p>
         </div>
 
         <div className="bg-white border border-zinc-200 shadow-sm overflow-hidden min-h-[400px] relative">
-
           {loading && (
             <div className="absolute inset-0 flex items-center justify-center bg-white/60 backdrop-blur-sm z-10">
               <Loader2 className="w-8 h-8 text-zinc-400 animate-spin" />
@@ -37,7 +37,6 @@ export default function Downloads() {
 
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[800px]">
-
               <thead>
                 <tr className="bg-zinc-50/80 border-b border-zinc-200 text-xs uppercase tracking-wider font-semibold text-zinc-500">
                   <th className="py-4 px-6">System</th>
@@ -51,12 +50,11 @@ export default function Downloads() {
 
               <tbody className="divide-y divide-zinc-100 text-sm">
                 {downloads.map(({ id, logo, name, category, status, version, updatedAt, size }) => (
-                  <tr 
-                    key={id} 
+                  <tr
+                    key={id}
                     onClick={() => navigate(`/os/${id}`)}
                     className="hover:bg-zinc-50/80 transition-colors group cursor-pointer"
                   >
-
                     <td className="py-5 px-6 whitespace-nowrap min-w-[200px]">
                       <div className="flex items-center gap-3 font-medium text-zinc-900">
                         <div className="w-10 h-10 p-2 bg-zinc-100 group-hover:bg-white group-hover:shadow-sm border border-transparent group-hover:border-zinc-200 flex items-center justify-center">
@@ -93,20 +91,20 @@ export default function Downloads() {
                       )}
                     </td>
 
-                    <td className="py-5 px-6 text-zinc-500 whitespace-nowrap">
-                      {size}
-                    </td>
+                    <td className="py-5 px-6 text-zinc-500 whitespace-nowrap">{size}</td>
 
                     <td className="py-5 px-6 text-right whitespace-nowrap">
-                      <button 
-                        onClick={(e) => { e.stopPropagation(); navigate(`/os/${id}`); }}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          navigate(`/os/${id}`)
+                        }}
                         className="inline-flex items-center gap-2 px-4 py-2 bg-white text-zinc-900 border border-zinc-200 hover:bg-zinc-50 hover:border-zinc-300 font-medium active:scale-95 text-xs shadow-sm group-hover:shadow"
                       >
                         <ShoppingCart className="w-3.5 h-3.5" />
                         Buy Now
                       </button>
                     </td>
-
                   </tr>
                 ))}
 
@@ -118,17 +116,16 @@ export default function Downloads() {
                   </tr>
                 )}
               </tbody>
-
             </table>
           </div>
         </div>
 
         <div className="mt-12 text-center md:text-left">
           <p className="text-sm text-zinc-400">
-            By downloading, you agree to our Terms of Service and Privacy Policy. All downloads are generated securely.
+            By downloading, you agree to our Terms of Service and Privacy Policy. All downloads are
+            generated securely.
           </p>
         </div>
-
       </div>
     </div>
   )
