@@ -141,6 +141,15 @@ export default function OsDetails() {
 
                 <div>
                   <p className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-400 mb-1">
+                    Pricing
+                  </p>
+                  <p className="font-mono text-sm font-medium text-zinc-900 flex items-center gap-2">
+                    {os.pricing || '2999 INR'}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-400 mb-1">
                     Status
                   </p>
                   <p className="font-sans text-sm font-bold uppercase tracking-wider text-emerald-600 flex items-center gap-2">
