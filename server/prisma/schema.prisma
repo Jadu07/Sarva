@@ -23,6 +23,7 @@ model Os {
   description String
   size        String
   status      String
+  pricing     String?  @default("2999 INR")
   logo        String?
   category    Category @relation(fields: [categoryId], references: [id])
   categoryId  String   @db.ObjectId
