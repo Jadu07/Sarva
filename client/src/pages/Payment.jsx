@@ -55,9 +55,7 @@ export default function Payment() {
         <h2 className="text-2xl font-black uppercase tracking-tight text-zinc-900 mb-2">
           Payment Successful
         </h2>
-        <p className="text-sm font-medium text-zinc-500">
-          Redirecting to downloads...
-        </p>
+        <p className="text-sm font-medium text-zinc-500">Redirecting to downloads...</p>
       </div>
     )
   }
